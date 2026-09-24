@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ralph ♡ Rafka — September 26, 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#030b1b;
+    --blue:#0b2d58;
+    --lightblue:#73b9ff;
+    --ice:#dff1ff;
+    --paper:#f5f8fc;
+    --ink:#17243a;
+}
+
+html,
+body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:var(--navy);
+    color:white;
+}
+
+body{
+    font-family:"Cormorant Garamond",serif;
+}
+
+/* =========================
+   SPACE
+========================= */
+
+#space{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 50% 45%,
+        #123765 0%,
+        #06152d 28%,
+        #020713 72%
+    );
+
+    perspective:1400px;
+}
+
+#stars,
+#dust{
+    position:absolute;
+    inset:-20%;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:#dff3ff;
+
+    border-radius:50%;
+
+    opacity:.6;
+
+    animation:
+        twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+
+    50%{
+        opacity:.12;
+        transform:scale(.5);
+    }
+
+}
+
+.dust i{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#8bc9ff;
+
+    box-shadow:
+        0 0 14px #62b7ff;
+
+    opacity:.35;
+
+    animation:
+        float 12s infinite linear;
+
+}
+
+@keyframes float{
+
+    from{
+        transform:translate3d(0,30px,0);
+    }
+
+    to{
+        transform:translate3d(40px,-100vh,0);
+    }
+
+}
+
+/* =========================
+   SCREEN SYSTEM
+========================= */
+
+.screen{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity 1s,
+        visibility 1s;
+
+    z-index:5;
+}
+
+.screen.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.panel{
+
+    text-align:center;
+
+    max-width:760px;
+
+    width:92%;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.kicker{
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#8fc9ff;
+
+}
+
+.title{
+
+    font-size:
+        clamp(42px,9vw,88px);
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+}
+
+.subtitle{
+
+    font-size:
+        clamp(18px,3vw,27px);
+
+    color:#c9dff5;
+
+    margin-top:8px;
+
+}
+
+.hand{
+
+    font-family:Caveat,cursive;
+}
+
+/* =========================
+   PASSWORD
+========================= */
+
+.password-box{
+
+    margin:
+        35px auto 0;
+
+    width:min(360px,100%);
+
+}
+
+.password-box input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    border:
+        1px solid #35628f;
+
+    background:
+        rgba(2,12,29,.75);
+
+    color:white;
+
+    text-align:center;
+
+    outline:none;
+
+    box-shadow:
+        inset 0 0 20px #0008,
+        0 0 30px #0d4b8220;
+
+    letter-spacing:4px;
+
+    font-size:18px;
+
+}
+
+.glow-btn{
+
+    margin-top:14px;
+
+    padding:12px 25px;
+
+    border-radius:999px;
+
+    border:
+        1px solid #6cbcff;
+
+    background:
+        linear-gradient(
+            180deg,
+            #164a80,
+            #0b2d58
+        );
+
+    color:white;
+
+    box-shadow:
+        0 0 24px #4aa9ff35,
+        inset 0 0 12px #ffffff15;
+
+    transition:.25s;
+
+}
+
+.glow-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 34px #54b5ff66;
+
+}
+
+.hint{
+
+    margin-top:13px;
+
+    font-size:14px;
+
+    color:#7895b2;
+
+}
+
+#error{
+
+    height:20px;
+
+    color:#8fc9ff;
+
+    margin-top:10px;
+
+    font-size:15px;
+
+}
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-wrap{
+
+    width:min(690px,94vw);
+
+    height:min(570px,82vh);
+
+    display:grid;
+
+    place-items:center;
+
+    perspective:1400px;
+
+}
+
+.calendar{
+
+    width:min(590px,90vw);
+
+    height:min(490px,72vh);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e3768,
+            #061a36 65%,
+            #071225
+        );
+
+    border:
+        1px solid #5da9e766;
+
+    box-shadow:
+        35px 45px 80px #000b,
+        0 0 70px #4aa9ff20,
+        inset 0 0 35px #ffffff08;
+
+    transform:
+        rotateX(7deg)
+        rotateY(-8deg);
+
+    transition:
+        transform 1.5s ease;
+
+    position:relative;
+
+}
+
+.calendar:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border:
+        1px solid #8ecbff20;
+
+    border-radius:15px;
+
+    pointer-events:none;
+
+}
+
+.month{
+
+    font-size:
+        clamp(28px,5vw,46px);
+
+    font-weight:600;
+
+    letter-spacing:7px;
+
+}
+
+.year{
+
+    color:#82b6e7;
+
+    letter-spacing:5px;
+
+    font-size:15px;
+
+    margin-top:3px;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(7,1fr);
+
+    gap:8px;
+
+    margin-top:26px;
+
+}
+
+.grid span{
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:#9ebcda;
+
+    font-size:15px;
+
+}
+
+.grid .day{
+
+    color:#d9ebff;
+
+    border:
+        1px solid transparent;
+
+    border-radius:10px;
+
+    transition:.4s;
+
+}
+
+.grid .day:hover{
+
+    background:#ffffff0d;
+
+}
+
+.grid .special{
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle,
+            #2879bb,
+            #0c3769
+        );
+
+    border-color:#8dccff;
+
+    box-shadow:
+        0 0 28px #4baeff88;
+
+    transform:
+        translateZ(30px)
+        scale(1.1);
+
+    cursor:pointer;
+
+}
+
+.calendar-note{
+
+    margin-top:20px;
+
+    color:#a9c7e5;
+
+    font-size:16px;
+
+}
+
+.calendar-note b{
+
+    color:white;
+
+}
+
+#dateReveal{
+
+    margin-top:18px;
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+    transition:1s;
+
+}
+
+#dateReveal.show{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+.bigdate{
+
+    font-size:
+        clamp(25px,5vw,43px);
+
+    letter-spacing:3px;
+
+}
+
+.smallline{
+
+    font-size:18px;
+
+    color:#91bce4;
+
+    margin-top:4px;
+
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-scene{
+
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    place-items:center;
+
+    perspective:1200px;
+
+}
+
+.envelope{
+
+    position:relative;
+
+    width:min(560px,82vw);
+
+    height:min(360px,54vw);
+
+    min-height:230px;
+
+    transform-style:preserve-3d;
+
+    transform:
+        rotateX(8deg)
+        rotateY(-8deg);
+
+    transition:
+        transform 1.4s
+        cubic-bezier(.2,.8,.2,1);
+
+    cursor:pointer;
+
+}
+
+.env-back,
+.env-front{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #14518d,
+            #08254b
+        );
+
+    border:
+        1px solid #78bfff55;
+
+    box-shadow:
+        0 35px 70px #000b,
+        0 0 55px #238ee42b;
+
+}
+
+.env-front{
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 55%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e3c70,
+            #061d3b
+        );
+
+}
+
+.flap{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:57%;
+
+    transform-origin:top center;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    background:
+        linear-gradient(
+            180deg,
+            #1d65a6,
+            #0b315d
+        );
+
+    border-top:
+        1px solid #83c8ff66;
+
+    transition:
+        transform 1.3s
+        cubic-bezier(.2,.8,.2,1);
+
+    backface-visibility:hidden;
+
+}
+
+.seal{
+
+    position:absolute;
+
+    z-index:7;
+
+    left:50%;
+    top:48%;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(35px);
+
+    width:76px;
+    height:76px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #a8dcff,
+            #236ca8 55%,
+            #0a315c
+        );
+
+    border:
+        2px solid #b8e3ff88;
+
+    box-shadow:
+        0 0 35px #5bb7ff99;
+
+    transition:1s;
+
+}
+
+.seal span{
+
+    font-size:27px;
+
+}
+
+.envelope.open .flap{
+
+    transform:
+        rotateX(178deg);
+
+}
+
+.envelope.open .seal{
+
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(35px)
+        scale(.2);
+
+}
+
+.envelope.open{
+
+    transform:
+        rotateX(3deg)
+        rotateY(0)
+        translateY(50px);
+
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-stage{
+
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    place-items:center;
+
+    perspective:1500px;
+
+}
+
+.letter{
+
+    width:min(680px,91vw);
+
+    height:min(760px,88vh);
+
+    padding:
+        clamp(28px,5vw,55px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbfdff,
+            #e8f1fa
+        );
+
+    color:var(--ink);
+
+    border-radius:4px;
+
+    box-shadow:
+        25px 35px 80px #000b,
+        0 0 40px #70baff22;
+
+    transform:
+        rotateY(-8deg)
+        rotateX(3deg);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.letter:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:
+        1px solid #6c91b522;
+
+    pointer-events:none;
+
+}
+
+.page{
+
+    height:100%;
+
+    display:none;
+
+    overflow:auto;
+
+    padding:
+        8px
+        12px
+        45px
+        8px;
+
+    scrollbar-width:thin;
+
+}
+
+.page.active{
+
+    display:block;
+
+    animation:
+        pageIn .9s ease;
+
+}
+
+@keyframes pageIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            rotateY(70deg);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+.page h2{
+
+    font-family:Caveat,cursive;
+
+    font-size:
+        clamp(37px,7vw,58px);
+
+    font-weight:600;
+
+    color:#123d69;
+
+    margin-bottom:20px;
+
+}
+
+.page p{
+
+    font-family:Caveat,cursive;
+
+    font-size:
+        clamp(22px,3.9vw,29px);
+
+    line-height:1.48;
+
+    margin:
+        0 0 17px;
+
+}
+
+.signature{
+
+    font-size:34px!important;
+
+    text-align:right;
+
+    margin-top:25px!important;
+
+}
+
+.controls{
+
+    position:absolute;
+
+    z-index:20;
+
+    bottom:18px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.ctrl{
+
+    border:
+        1px solid #3e719d;
+
+    background:#0b315cdd;
+
+    color:white;
+
+    border-radius:999px;
+
+    padding:9px 16px;
+
+    box-shadow:
+        0 6px 20px #0005;
+
+}
+
+.counter{
+
+    position:absolute;
+
+    right:25px;
+
+    top:20px;
+
+    color:#47698a;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-box{
+
+    text-align:center;
+
+}
+
+.final-box .heart{
+
+    font-size:75px;
+
+    animation:
+        heart 1.5s infinite;
+
+}
+
+@keyframes heart{
+
+    50%{
+
+        transform:scale(1.13);
+
+        filter:
+            drop-shadow(
+                0 0 22px #61b9ff
+            );
+
+    }
+
+}
+
+.final-box h2{
+
+    font-family:Caveat,cursive;
+
+    font-size:
+        clamp(50px,10vw,90px);
+
+    font-weight:500;
+
+}
+
+.final-box p{
+
+    font-size:22px;
+
+    color:#b7d2ec;
+
+    margin-top:10px;
+
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+
+    position:fixed;
+
+    right:18px;
+
+    bottom:18px;
+
+    z-index:100;
+
+    padding:9px 13px;
+
+    border:
+        1px solid #5d91bc;
+
+    border-radius:999px;
+
+    background:#061a33cc;
+
+    color:#cce8ff;
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+}
+
+.music.show{
+
+    display:block;
+
+}
+
+/* =========================
+   EFFECTS
+========================= */
+
+.shake{
+
+    animation:
+        shake .45s;
+
+}
+
+@keyframes shake{
+
+    25%{
+        transform:translateX(-8px);
+    }
+
+    50%{
+        transform:translateX(8px);
+    }
+
+    75%{
+        transform:translateX(-5px);
+    }
+
+}
+
+.fadeout{
+
+    animation:
+        fadeout 1.2s forwards;
+
+}
+
+@keyframes fadeout{
+
+    to{
+
+        opacity:0;
+
+        transform:
+            scale(1.04);
+
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .calendar{
+
+        padding:20px;
+
+    }
+
+    .grid{
+
+        gap:3px;
+
+    }
+
+    .grid span{
+
+        height:34px;
+
+        font-size:13px;
+
+    }
+
+    .letter{
+
+        height:86vh;
+
+        padding:
+            25px 22px;
+
+    }
+
+    .letter p{
+
+        font-size:21px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="space">
+
+<div id="stars"></div>
+<div id="dust"></div>
+
+
+<!-- =================================
+     PASSWORD
+================================= -->
+
+<section
+    class="screen active"
+    id="passwordScreen"
+>
+
+<div class="panel">
+
+<div class="kicker">
+private letter // ralph → rafka
+</div>
+
+<div class="title hand">
+A little something for you.
+</div>
+
+<div class="subtitle">
+This letter was written exclusively for one person.
+</div>
+
+<div class="password-box">
+
+<input
+    id="password"
+    type="password"
+    placeholder="enter the password"
+    autocomplete="off"
+>
+
+<button
+    class="glow-btn"
+    id="unlock"
+>
+OPEN THE LETTER
+</button>
+
+<div class="hint">
+hint: our little name ♡
+</div>
+
+<div id="error"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     CALENDAR
+================================= -->
+
+<section
+    class="screen"
+    id="calendarScreen"
+>
+
+<div class="calendar-wrap">
+
+<div
+    class="calendar"
+    id="calendar"
+>
+
+<div class="kicker">
+our first chapter
+</div>
+
+<div class="month">
+SEPTEMBER
+</div>
+
+<div class="year">
+2026
+</div>
+
+<div
+    class="grid"
+    id="calendarGrid"
+></div>
+
+<div id="dateReveal">
+
+<div class="bigdate hand">
+September 26, 2026
+</div>
+
+<div class="smallline">
+Ralph ♡ Rafka — our 1st monthsary
+</div>
+
+</div>
+
+<div
+    class="calendar-note"
+    id="calendarNote"
+>
+tap <b>26</b> to reveal our date
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     ENVELOPE
+================================= -->
+
+<section
+    class="screen"
+    id="envelopeScreen"
+>
+
+<div class="envelope-scene">
+
+<div
+    class="panel"
+    style="
+        position:absolute;
+        top:11%;
+    "
+>
+
+<div class="kicker">
+a letter from ralph to rafka
+</div>
+
+</div>
+
+
+<div
+    class="envelope"
+    id="envelope"
+>
+
+<div class="env-back"></div>
+
+<div class="flap"></div>
+
+<div class="env-front"></div>
+
+<div
+    class="seal"
+    id="seal"
+>
+
+<span>
+♡
+</span>
+
+</div>
+
+</div>
+
+
+<div
+    class="panel"
+    style="
+        position:absolute;
+        bottom:10%;
+    "
+>
+
+<div
+    class="subtitle hand"
+    id="envelopeHint"
+>
+tap the blue seal to open it
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     LETTER
+================================= -->
+
+<section
+    class="screen"
+    id="letterScreen"
+>
+
+<div class="letter-stage">
+
+<article
+    class="letter"
+    id="letter"
+>
+
+<div
+    class="counter"
+    id="counter"
+>
+01 / 06
+</div>
+
+
+<!-- PAGE 1 -->
+
+<div class="page active">
+
+<h2>
+Hi baby,
+</h2>
+
+<p>
+Look, lowkey sorry etong mga digital gifts palang ang kaya kong ibigay sayo right now hehe. Alam mo naman, malayo pa si gago mo ngayon HAHA, bawi ako sayo nang malupit at siksik-liglig pag nagkita tayo. Yan ang solid na promise ko sayo, mal.
+</p>
+
+<p>
+Pero real talk baby, once the universe finally lets us link up in person, I promise you I'm gonna spoil the absolute hell out of you at ibibigay ko sayo lahat ng treatment, alaga at pagmamahal na deserve mo talaga bilang reyna ng buhay ko.
+</p>
+
+<p>
+Happy 1st motmot, baby! 💙
+</p>
+
+</div>
+
+
+<!-- PAGE 2 -->
+
+<div class="page">
+
+<h2>
+First time ko 'to.
+</h2>
+
+<p>
+First time ko lang po gawin 'to sa buong buhay ko, as in never ko 'to ginawa sa iba, kaya legal naman kabahan at maging soft konti diba? hehe.
+</p>
+
+<p>
+I really hope you appreciate this little effort, mal. My very first LDR girlfriend... damn, aww, I love you so much, baby.
+</p>
+
+<p>
+Fr, I have so much to say right now pero parang naghahang yung utak ko sa sobrang daming emosyon, hindi ko na alam kung saan ba ako eksaktong magsisimula hahaha.
+</p>
+
+<p>
+Maybe I'll start by saying how genuinely grateful I am to have you by my side. It's been three months since we started talking and vibing.
+</p>
+
+<p>
+I know some people out there might think, “oh, three months? ang iksi pa niyan, bago pa lang,” pero honestly, para sakin, sobrang haba na niyan at parang isang buong era na yung pinagsamahan natin sa sobrang lalim ng connection natin.
+</p>
+
+<p>
+And in those three months, wala akong ibang ginawa kundi kilalanin ang pagkatao mo, unawain ang mga mood swings mo at mahalin ka nang buong buo everyday.
+</p>
+
+</div>
+
+
+<!-- PAGE 3 -->
+
+<div class="page">
+
+<h2>
+Thank you, mal.
+</h2>
+
+<p>
+I'm so incredibly thankful for you, sa mga random updates mo kahit busy ka, sa mga simpleng effort mo na nagpapakilig sakin, sa buong pagkatao mo na walang katulad.
+</p>
+
+<p>
+I just want you to know that you are, hands down, the best girlfriend in the entire world. Period. No debate, no arguments, automatic panalo ka agad sa kahit sinong iharap mo sakin.
+</p>
+
+<p>
+I deeply appreciate everything you do, lalo na kung paano mo ako itrato at alagaan kahit magkalayo tayo. I might not say it every day, pero sobrang laking bagay niyan sakin, mal, fr.
+</p>
+
+<p>
+Binago mo yung pananaw ko sa maraming bagay. You gave me the kind of treatment na matagal ko nang gustong maranasan at maramdaman sa buong buhay ko — yung pakiramdam na pinapahalagahan at pinapakinggan ako.
+</p>
+
+<p>
+And I finally found all of that in you.
+</p>
+
+<p>
+Sobrang nagpapasalamat ako sayo for that, babe. You're literally my safe space, aking takbuhan tuwing pagod na ako sa mundo.
+</p>
+
+</div>
+
+
+<!-- PAGE 4 -->
+
+<div class="page">
+
+<h2>
+Can we talk about you?
+</h2>
+
+<p>
+Geez, can we talk about how insanely gorgeous you are? Seryoso po, hindi ko alam kung anong matinding swerte o anong kabutihan ang nagawa ko sa past life ko pero sobrang ganda mo talaga.
+</p>
+
+<p>
+Like, look at yourself in the mirror naman kahit isang beses lang, mapapamura ka na lang din sa ganda mo eh. Every single time na nakikita ko yung mga pictures mo, kahit magulo buhok mo, napapatitig na lang ako sa screen kasi ang seryoso, walang tapon sa mukha mo, mal.
+</p>
+
+<p>
+Mukha kang artwork na hindi nakakasawang tingnan. Sinasabi ko 'to sayo ngayon kasi gusto kong pumasok dyan sa matigas mong ulo dahil hindi naman yan malambot, na napakaganda mo, inside and out.
+</p>
+
+<p>
+Alam ko maybe habang binabasa mo 'to, pinipigilan mo ngumiti tapos magpopout ka na naman kasi kinikilig ka at naaappreciate mo yung banat ng boyfriend mo.
+</p>
+
+<p>
+Sige lang, magpout ka lang diyan habang nagbabasa, ang cute mo kaya kapag ginagawa mo yan, sarap kurutin ng pisngi mo.
+</p>
+
+<p>
+I will never tire of complimenting you and reminding you how breathtaking you are, lalo na sa mga araw na mababa ang self-esteem mo at pakiramdam mo hindi ka sapat.
+</p>
+
+<p>
+Always remember na sa mata ko, ikaw at ikaw lang ang pinakamagandang babae sa buong mundo. No cap, walang kapantay.
+</p>
+
+</div>
+
+
+<!-- PAGE 5 -->
+
+<div class="page">
+
+<h2>
+All the things we'll do.
+</h2>
+
+<p>
+Alam mo rin ba, babe, ang dami-dami kong gustong gawin kasama ka pag magkasama na tayo. All those late night plans we talked about? Best believe we're crossing every single thing off our bucket list, walang maiiwan.
+</p>
+
+<p>
+We're going to Paris o di kaya Chicago, maglalakad sa lamig, and then I'm taking you to Thailand para mag-explore naman doon.
+</p>
+
+<p>
+I also want to experience Disneyland with you kahit mukha akong bodyguard mo doon habang may hawak na cute na cotton candy at headband. Okay lang basta kasama kita ehehe.
+</p>
+
+<p>
+At lilibutin natin ang buong mundo nang magkahawak ang mga kamay natin, ipagmamalaki kita sa lahat ng bansa na dadaanan natin.
+</p>
+
+<p>
+And I'm down to do all your favorite sports with you also, kahit mapagod ako okay lang. Taekwondo, basketball, even futsal kasama ang mga future mini-me's natin sa susunod na mga taon — kahit baka ikaw lang din magbuhat sa team natin kasi mas athletic ka kesa sakin HAHA.
+</p>
+
+<p>
+Let's play chess together too sa gabi. Kahit matalo mo ako paulit-ulit, okay lang sakin. Checkmate naman na ang puso ko sayo simula day one eh.
+</p>
+
+<p>
+I remember you saying you want to go diving. Geez, I'll gladly join you out there — well, mag-aabang lang talaga ako sa bangka at papanoorin kita mula sa taas habang may hawak na tuwalya kasi ang boyfriend mo literal na hindi marunong lumangoy, baka malunod lang ako don, maging content pa tayo sa TikTok HAHA.
+</p>
+
+<p>
+Pero seryoso, mal, papanoorin kita mag-diving nang may pagmamalaki. Ganon din kapag naghihip-hop dance ka, asahan mo ako ang number one proud fanboy mo sa gilid na humiyaw para sayo.
+</p>
+
+<p>
+Sasamahan din kita magfiring para cool, at mag-golf tayo kahit mukha tayong tanga na ewan sa simula kapag hindi natatamaan yung bola hahhaa.
+</p>
+
+<p>
+Aakyat din tayo sa mga pinakamataas na bundok magkasama para sabay nating titingnan yung view mula sa taas.
+</p>
+
+<p>
+Then for our chill Sunday dates, magpipicnic tayo sa isang tahimik na park, magpaint or sketch together ng mga random na bagay, at magplan ng magiging layout ng bahay natin sa hinaharap habang kumakain ng sandwich na ginawa mo.
+</p>
+
+<p>
+Kakain din tayo ng madaming ngohiong, mag-night market, mango float, mango graham, stargazing, at papanoorin natin ang paboritong constellation ng mister mo dahil Orion season na naman.
+</p>
+
+<p>
+Ipapakilala kita sa tatlong paborito kong star. Gagawin natin lahat yan. Walang drawing, solid na plano yan na mangyayari soon.
+</p>
+
+</div>
+
+
+<!-- PAGE 6 -->
+
+<div class="page">
+
+<h2>
+Right now.
+</h2>
+
+<p>
+But beyond all those flashy plans and future dates, baby, I want to talk about right now.
+</p>
+
+<p>
+I know things have been extra heavy for you lately, at ang daming bullcrap na ibinabato sayo ng buhay. Nakakapanghina rin para sakin at nadudurog ang puso ko kapag nakikita kitang stressed, pagod o tahimik na nahihirapan sa mga bagay-bagay na pinagdadaanan mo.
+</p>
+
+<p>
+Pero gusto kong itatak mo dyan sa isip mo na hindi mo na kailangang buhatin mag-isa yung bigat ng buong mundo, okay po? Hati tayo rito. Problema mo, problema ko na rin.
+</p>
+
+<p>
+You're allowed to rest, you're allowed to cry, and you're allowed to have bad days kung saan wala ka sa mood.
+</p>
+
+<p>
+Gusto kong makita kang magheal sa lahat ng mga bagay, trauma o lungkot na patago mong pinagdadaanan at nagpapaiyak sayo sa gabi.
+</p>
+
+<p>
+Gusto kong ako yung maging matibay mong sandigan, yung dahilan ng mga ngiti mo at ng totoong tawa mo kapag pagod ka na.
+</p>
+
+<p>
+Kasama mo ako sa buong proseso ng pag-heal mo, hinding-hindi kita iiwan o pababayaan doon, sabay nating haharapin yan.
+</p>
+
+<p>
+I'm in this for the long haul, baby. Through the highs, the lows, the random arguments, ang mga selosan at sa mga seryosong problema na dumarating, wala akong balak bumitaw o sumuko sayo kahit kailan.
+</p>
+
+<p>
+I'm staying right by your side through all the ups and downs of life. Side by side tayo lalaban sa mundong 'to hanggang sa makamit natin lahat ng pangarap natin.
+</p>
+
+<p>
+Thank you for choosing me to be your man, and thank you for being the amazing person that you are.
+</p>
+
+<p>
+I love you more than words can ever express, aking napakagandang LDR queen.
+</p>
+
+<p>
+Happy 1st monthsary uli, baby! Wag ka magpout diyan sa harap ng screen mo, yayakapin at hahalikan kita nang matindi kapag nagkita na tayo eh.
+</p>
+
+<p>
+I love you so much, sobra-sobra. Tagay sa marami pang buwan at taon kasama ka!
+</p>
+
+<p>
+Kaluguran daka sobra sobra sobra, mal. Kisses! Mwamwamwamwaaaaa.
+</p>
+
+<p class="signature">
+— Ralph, always. ♡
+</p>
+
+</div>
+
+
+<div class="controls">
+
+<button
+    class="ctrl"
+    id="prev"
+>
+←
+</button>
+
+<button
+    class="ctrl"
+    id="next"
+>
+turn the page →
+</button>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     FINAL
+================================= -->
+
+<section
+    class="screen"
+    id="finalScreen"
+>
+
+<div class="final-box">
+
+<div class="heart">
+♡
+</div>
+
+<div class="kicker">
+september 26, 2026
+</div>
+
+<h2>
+Happy 1st Monthsary, Rafka.
+</h2>
+
+<p class="hand">
+I'd still choose you, in every version of this universe.
+</p>
+
+<button
+    class="glow-btn"
+    onclick="location.reload()"
+>
+read it again
+</button>
+
+</div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<button
+    class="music"
+    id="musicBtn"
+>
+♫ music: off
+</button>
+
+
+<audio
+    id="music"
+    loop
+    preload="auto"
+>
+
+<source
+    src="music.mp3"
+    type="audio/mpeg"
+>
+
+</audio>
+
+
+<script>
+
+/* =================================
+   STAR FIELD
+================================= */
+
+const stars =
+document.getElementById("stars");
+
+for(let i=0;i<150;i++){
+
+    const s =
+    document.createElement("i");
+
+    s.className="star";
+
+    s.style.left =
+        Math.random()*100+"%";
+
+    s.style.top =
+        Math.random()*100+"%";
+
+    s.style.animationDelay =
+        Math.random()*4+"s";
+
+    s.style.animationDuration =
+        2+Math.random()*4+"s";
+
+    stars.appendChild(s);
+
+}
+
+
+/* =================================
+   FLOATING DUST
+================================= */
+
+const dust =
+document.getElementById("dust");
+
+for(let i=0;i<28;i++){
+
+    const d =
+    document.createElement("i");
+
+    d.style.left =
+        Math.random()*100+"%";
+
+    d.style.top =
+        70+Math.random()*45+"%";
+
+    d.style.animationDelay =
+        -Math.random()*12+"s";
+
+    d.style.animationDuration =
+        8+Math.random()*12+"s";
+
+    dust.appendChild(d);
+
+}
+
+
+/* =================================
+   SCREEN SWITCHING
+================================= */
+
+function show(id){
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(
+        x =>
+        x.classList.remove("active")
+    );
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+
+}
+
+
+/* =================================
+   MUSIC
+================================= */
+
+const music =
+document.getElementById("music");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+
+function startMusic(){
+
+    music
+    .play()
+    .then(()=>{
+
+        musicBtn.textContent =
+            "♫ music: on";
+
+        musicBtn.classList.add("show");
+
+    })
+    .catch(()=>{
+
+        musicBtn.classList.add("show");
+
+        musicBtn.textContent =
+            "♫ music: tap to play";
+
+    });
+
+}
+
+
+musicBtn.onclick = ()=>{
+
+    if(music.paused){
+
+        music.play();
+
+        musicBtn.textContent =
+            "♫ music: on";
+
+    }else{
+
+        music.pause();
+
+        musicBtn.textContent =
+            "♫ music: off";
+
+    }
+
+};
+
+
+/* =================================
+   PASSWORD
+================================= */
+
+const pass =
+document.getElementById("password");
+
+const unlock =
+document.getElementById("unlock");
+
+const error =
+document.getElementById("error");
+
+
+function tryUnlock(){
+
+    if(
+        pass.value
+        .trim()
+        .toLowerCase()
+        ===
+        "ralphka"
+    ){
+
+        error.textContent="";
+
+        startMusic();
+
+        show("calendarScreen");
+
+    }else{
+
+        error.textContent =
+            "not quite, baby ♡";
+
+        pass.classList.remove("shake");
+
+        void pass.offsetWidth;
+
+        pass.classList.add("shake");
+
+    }
+
+}
+
+
+unlock.onclick =
+    tryUnlock;
+
+
+pass.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key==="Enter"){
+
+            tryUnlock();
+
+        }
+
+    }
+);
+
+
+/* =================================
+   SEPTEMBER 2026 CALENDAR
+================================= */
+
+const grid =
+document.getElementById(
+    "calendarGrid"
+);
+
+const weekdays =
+[
+    "SUN",
+    "MON",
+    "TUE",
+    "WED",
+    "THU",
+    "FRI",
+    "SAT"
+];
+
+
+weekdays.forEach(day=>{
+
+    const el =
+    document.createElement("span");
+
+    el.textContent=day;
+
+    grid.appendChild(el);
+
+});
+
+
+const first =
+new Date(
+    2026,
+    8,
+    1
+).getDay();
+
+
+for(
+    let i=0;
+    i<first;
+    i++
+){
+
+    grid.appendChild(
+        document.createElement("span")
+    );
+
+}
+
+
+for(
+    let d=1;
+    d<=30;
+    d++
+){
+
+    const el =
+    document.createElement("span");
+
+    el.className="day";
+
+    el.textContent=d;
+
+
+    if(d===26){
+
+        el.classList.add(
+            "special"
+        );
+
+
+        el.onclick=()=>{
+
+            document
+            .getElementById(
+                "dateReveal"
+            )
+            .classList.add(
+                "show"
+            );
+
+
+            document
+            .getElementById(
+                "calendarNote"
+            )
+            .innerHTML =
+                "the day our first chapter is celebrated ♡";
+
+
+            document
+            .getElementById(
+                "calendar"
+            )
+            .style.transform =
+                "rotateX(0) rotateY(0) scale(1.02)";
+
+
+            setTimeout(
+                ()=>{
+                    show("envelopeScreen");
+                },
+                2200
+            );
+
+        };
+
+    }
+
+
+    grid.appendChild(el);
+
+}
+
+
+/* =================================
+   ENVELOPE
+================================= */
+
+const env =
+document.getElementById(
+    "envelope"
+);
+
+
+env.addEventListener(
+    "click",
+    ()=>{
+
+        if(
+            env.classList.contains(
+                "open"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        env.classList.add(
+            "open"
+        );
+
+
+        document
+        .getElementById(
+            "envelopeHint"
+        )
+        .textContent =
+            "opening your letter...";
+
+
+        setTimeout(
+            ()=>{
+                show("letterScreen");
+            },
+            1700
+        );
+
+    }
+);
+
+
+/* =================================
+   LETTER PAGES
+================================= */
+
+const pages =
+[
+    ...document
+    .querySelectorAll(".page")
+];
+
+
+let page=0;
+
+
+const counter =
+document.getElementById(
+    "counter"
+);
+
+const prev =
+document.getElementById(
+    "prev"
+);
+
+const next =
+document.getElementById(
+    "next"
+);
+
+
+function renderPage(){
+
+    pages.forEach(
+        (p,i)=>{
+
+            p.classList.toggle(
+                "active",
+                i===page
+            );
+
+        }
+    );
+
+
+    counter.textContent =
+        String(page+1)
+        .padStart(2,"0")
+        +
+        " / "
+        +
+        String(pages.length)
+        .padStart(2,"0");
+
+
+    prev.style.visibility =
+        page===0
+        ?
+        "hidden"
+        :
+        "visible";
+
+
+    next.textContent =
+        page===pages.length-1
+        ?
+        "finish the letter ♡"
+        :
+        "turn the page →";
+
+}
+
+
+prev.onclick=()=>{
+
+    if(page>0){
+
+        page--;
+
+        renderPage();
+
+    }
+
+};
+
+
+next.onclick=()=>{
+
+    if(
+        page <
+        pages.length-1
+    ){
+
+        page++;
+
+        renderPage();
+
+    }else{
+
+        document
+        .getElementById(
+            "letter"
+        )
+        .classList.add(
+            "fadeout"
+        );
+
+
+        setTimeout(
+            ()=>{
+                show("finalScreen");
+            },
+            1200
+        );
+
+    }
+
+};
+
+
+renderPage();
+
+
+/* =================================
+   KEYBOARD CONTROLS
+================================= */
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        if(
+            !document
+            .getElementById(
+                "letterScreen"
+            )
+            .classList.contains(
+                "active"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        if(
+            e.key==="ArrowRight" ||
+            e.key===" "
+        ){
+
+            e.preventDefault();
+
+            next.click();
+
+        }
+
+
+        if(
+            e.key==="ArrowLeft"
+        ){
+
+            prev.click();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
