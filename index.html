@@ -69,14 +69,10 @@ body{
 
 .star{
     position:absolute;
-
     width:2px;
     height:2px;
-
     background:#dff3ff;
-
     border-radius:50%;
-
     opacity:.6;
 
     animation:
@@ -84,23 +80,17 @@ body{
 }
 
 @keyframes twinkle{
-
     50%{
         opacity:.12;
         transform:scale(.5);
     }
-
 }
 
 .dust i{
-
     position:absolute;
-
     width:3px;
     height:3px;
-
     border-radius:50%;
-
     background:#8bc9ff;
 
     box-shadow:
@@ -110,11 +100,9 @@ body{
 
     animation:
         float 12s infinite linear;
-
 }
 
 @keyframes float{
-
     from{
         transform:translate3d(0,30px,0);
     }
@@ -122,7 +110,6 @@ body{
     to{
         transform:translate3d(40px,-100vh,0);
     }
-
 }
 
 /* =========================
@@ -130,13 +117,10 @@ body{
 ========================= */
 
 .screen{
-
     position:absolute;
-
     inset:0;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -144,69 +128,45 @@ body{
     visibility:hidden;
 
     transition:
-        opacity 1s,
-        visibility 1s;
+        opacity 1s ease,
+        visibility 1s ease;
 
     z-index:5;
 }
 
 .screen.active{
-
     opacity:1;
     visibility:visible;
-
 }
 
 .panel{
-
     text-align:center;
-
     max-width:760px;
-
     width:92%;
-
     position:relative;
-
     z-index:2;
-
 }
 
 .kicker{
-
     font-size:12px;
-
     letter-spacing:5px;
-
     text-transform:uppercase;
-
     color:#8fc9ff;
-
 }
 
 .title{
-
-    font-size:
-        clamp(42px,9vw,88px);
-
+    font-size:clamp(42px,9vw,88px);
     font-weight:500;
-
     letter-spacing:1px;
-
 }
 
 .subtitle{
-
-    font-size:
-        clamp(18px,3vw,27px);
-
+    font-size:clamp(18px,3vw,27px);
     color:#c9dff5;
-
     margin-top:8px;
-
 }
 
 .hand{
-
     font-family:Caveat,cursive;
 }
 
@@ -215,32 +175,21 @@ body{
 ========================= */
 
 .password-box{
-
-    margin:
-        35px auto 0;
-
+    margin:35px auto 0;
     width:min(360px,100%);
-
 }
 
 .password-box input{
-
     width:100%;
-
     padding:15px 18px;
 
     border-radius:14px;
+    border:1px solid #35628f;
 
-    border:
-        1px solid #35628f;
-
-    background:
-        rgba(2,12,29,.75);
-
+    background:rgba(2,12,29,.75);
     color:white;
 
     text-align:center;
-
     outline:none;
 
     box-shadow:
@@ -248,21 +197,16 @@ body{
         0 0 30px #0d4b8220;
 
     letter-spacing:4px;
-
     font-size:18px;
-
 }
 
 .glow-btn{
-
     margin-top:14px;
 
     padding:12px 25px;
 
     border-radius:999px;
-
-    border:
-        1px solid #6cbcff;
+    border:1px solid #6cbcff;
 
     background:
         linear-gradient(
@@ -279,37 +223,27 @@ body{
 
     transition:.25s;
 
+    cursor:pointer;
 }
 
 .glow-btn:hover{
-
     transform:translateY(-2px);
 
     box-shadow:
         0 0 34px #54b5ff66;
-
 }
 
 .hint{
-
     margin-top:13px;
-
     font-size:14px;
-
     color:#7895b2;
-
 }
 
 #error{
-
     height:20px;
-
     color:#8fc9ff;
-
     margin-top:10px;
-
     font-size:15px;
-
 }
 
 /* =========================
@@ -317,23 +251,17 @@ body{
 ========================= */
 
 .calendar-wrap{
-
     width:min(690px,94vw);
-
     height:min(570px,82vh);
 
     display:grid;
-
     place-items:center;
 
     perspective:1400px;
-
 }
 
 .calendar{
-
     width:min(590px,90vw);
-
     height:min(490px,72vh);
 
     padding:30px;
@@ -348,8 +276,7 @@ body{
             #071225
         );
 
-    border:
-        1px solid #5da9e766;
+    border:1px solid #5da9e766;
 
     box-shadow:
         35px 45px 80px #000b,
@@ -364,15 +291,12 @@ body{
         transform 1.5s ease;
 
     position:relative;
-
 }
 
 .calendar:before{
-
     content:"";
 
     position:absolute;
-
     inset:8px;
 
     border:
@@ -381,80 +305,50 @@ body{
     border-radius:15px;
 
     pointer-events:none;
-
 }
 
 .month{
-
-    font-size:
-        clamp(28px,5vw,46px);
-
+    font-size:clamp(28px,5vw,46px);
     font-weight:600;
-
     letter-spacing:7px;
-
 }
 
 .year{
-
     color:#82b6e7;
-
     letter-spacing:5px;
-
     font-size:15px;
-
     margin-top:3px;
-
 }
 
 .grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(7,1fr);
-
+    grid-template-columns:repeat(7,1fr);
     gap:8px;
-
     margin-top:26px;
-
 }
 
 .grid span{
-
     height:42px;
 
     display:grid;
-
     place-items:center;
 
     color:#9ebcda;
-
     font-size:15px;
-
 }
 
 .grid .day{
-
     color:#d9ebff;
-
-    border:
-        1px solid transparent;
-
+    border:1px solid transparent;
     border-radius:10px;
-
     transition:.4s;
-
 }
 
 .grid .day:hover{
-
     background:#ffffff0d;
-
 }
 
 .grid .special{
-
     color:white;
 
     background:
@@ -474,62 +368,41 @@ body{
         scale(1.1);
 
     cursor:pointer;
-
 }
 
 .calendar-note{
-
     margin-top:20px;
-
     color:#a9c7e5;
-
     font-size:16px;
-
 }
 
 .calendar-note b{
-
     color:white;
-
 }
 
 #dateReveal{
-
     margin-top:18px;
 
     opacity:0;
-
     transform:translateY(10px);
 
     transition:1s;
-
 }
 
 #dateReveal.show{
-
     opacity:1;
-
     transform:none;
-
 }
 
 .bigdate{
-
-    font-size:
-        clamp(25px,5vw,43px);
-
+    font-size:clamp(25px,5vw,43px);
     letter-spacing:3px;
-
 }
 
 .smallline{
-
     font-size:18px;
-
     color:#91bce4;
-
     margin-top:4px;
-
 }
 
 /* =========================
@@ -537,24 +410,19 @@ body{
 ========================= */
 
 .envelope-scene{
-
     width:100%;
     height:100%;
 
     display:grid;
-
     place-items:center;
 
     perspective:1200px;
-
 }
 
 .envelope{
-
     position:relative;
 
     width:min(560px,82vw);
-
     height:min(360px,54vw);
 
     min-height:230px;
@@ -570,14 +438,11 @@ body{
         cubic-bezier(.2,.8,.2,1);
 
     cursor:pointer;
-
 }
 
 .env-back,
 .env-front{
-
     position:absolute;
-
     inset:0;
 
     border-radius:10px;
@@ -589,17 +454,14 @@ body{
             #08254b
         );
 
-    border:
-        1px solid #78bfff55;
+    border:1px solid #78bfff55;
 
     box-shadow:
         0 35px 70px #000b,
         0 0 55px #238ee42b;
-
 }
 
 .env-front{
-
     clip-path:
         polygon(
             0 0,
@@ -615,11 +477,9 @@ body{
             #0e3c70,
             #061d3b
         );
-
 }
 
 .flap{
-
     position:absolute;
 
     z-index:5;
@@ -654,11 +514,9 @@ body{
         cubic-bezier(.2,.8,.2,1);
 
     backface-visibility:hidden;
-
 }
 
 .seal{
-
     position:absolute;
 
     z-index:7;
@@ -676,7 +534,6 @@ body{
     border-radius:50%;
 
     display:grid;
-
     place-items:center;
 
     background:
@@ -687,47 +544,36 @@ body{
             #0a315c
         );
 
-    border:
-        2px solid #b8e3ff88;
+    border:2px solid #b8e3ff88;
 
     box-shadow:
         0 0 35px #5bb7ff99;
 
     transition:1s;
-
 }
 
 .seal span{
-
     font-size:27px;
-
 }
 
 .envelope.open .flap{
-
-    transform:
-        rotateX(178deg);
-
+    transform:rotateX(178deg);
 }
 
 .envelope.open .seal{
-
     opacity:0;
 
     transform:
         translate(-50%,-50%)
         translateZ(35px)
         scale(.2);
-
 }
 
 .envelope.open{
-
     transform:
         rotateX(3deg)
         rotateY(0)
         translateY(50px);
-
 }
 
 /* =========================
@@ -735,26 +581,20 @@ body{
 ========================= */
 
 .letter-stage{
-
     width:100%;
     height:100%;
 
     display:grid;
-
     place-items:center;
 
     perspective:1500px;
-
 }
 
 .letter{
-
     width:min(680px,91vw);
-
     height:min(760px,88vh);
 
-    padding:
-        clamp(28px,5vw,55px);
+    padding:clamp(28px,5vw,55px);
 
     background:
         linear-gradient(
@@ -776,30 +616,23 @@ body{
         rotateX(3deg);
 
     position:relative;
-
     overflow:hidden;
-
 }
 
 .letter:before{
-
     content:"";
 
     position:absolute;
-
     inset:12px;
 
     border:
         1px solid #6c91b522;
 
     pointer-events:none;
-
 }
 
 .page{
-
     height:100%;
-
     display:none;
 
     overflow:auto;
@@ -811,41 +644,28 @@ body{
         8px;
 
     scrollbar-width:thin;
-
 }
 
 .page.active{
-
     display:block;
 
     animation:
         pageIn .9s ease;
-
 }
 
 @keyframes pageIn{
-
     from{
-
         opacity:0;
-
-        transform:
-            rotateY(70deg);
-
+        transform:rotateY(70deg);
     }
 
     to{
-
         opacity:1;
-
         transform:none;
-
     }
-
 }
 
 .page h2{
-
     font-family:Caveat,cursive;
 
     font-size:
@@ -856,11 +676,9 @@ body{
     color:#123d69;
 
     margin-bottom:20px;
-
 }
 
 .page p{
-
     font-family:Caveat,cursive;
 
     font-size:
@@ -870,40 +688,30 @@ body{
 
     margin:
         0 0 17px;
-
 }
 
 .signature{
-
     font-size:34px!important;
-
     text-align:right;
-
     margin-top:25px!important;
-
 }
 
 .controls{
-
     position:absolute;
 
     z-index:20;
 
     bottom:18px;
-
     left:50%;
 
     transform:
         translateX(-50%);
 
     display:flex;
-
     gap:10px;
-
 }
 
 .ctrl{
-
     border:
         1px solid #3e719d;
 
@@ -918,14 +726,13 @@ body{
     box-shadow:
         0 6px 20px #0005;
 
+    cursor:pointer;
 }
 
 .counter{
-
     position:absolute;
 
     right:25px;
-
     top:20px;
 
     color:#47698a;
@@ -933,7 +740,6 @@ body{
     font-size:13px;
 
     letter-spacing:2px;
-
 }
 
 /* =========================
@@ -941,54 +747,40 @@ body{
 ========================= */
 
 .final-box{
-
     text-align:center;
-
 }
 
 .final-box .heart{
-
     font-size:75px;
 
     animation:
         heart 1.5s infinite;
-
 }
 
 @keyframes heart{
-
     50%{
-
         transform:scale(1.13);
 
         filter:
             drop-shadow(
                 0 0 22px #61b9ff
             );
-
     }
-
 }
 
 .final-box h2{
-
     font-family:Caveat,cursive;
 
     font-size:
         clamp(50px,10vw,90px);
 
     font-weight:500;
-
 }
 
 .final-box p{
-
     font-size:22px;
-
     color:#b7d2ec;
-
     margin-top:10px;
-
 }
 
 /* =========================
@@ -996,23 +788,19 @@ body{
 ========================= */
 
 .music{
-
     position:fixed;
 
     right:18px;
-
     bottom:18px;
 
     z-index:100;
 
-    padding:9px 13px;
+    padding:10px 15px;
 
-    border:
-        1px solid #5d91bc;
-
+    border:1px solid #5d91bc;
     border-radius:999px;
 
-    background:#061a33cc;
+    background:#061a33dd;
 
     color:#cce8ff;
 
@@ -1020,12 +808,25 @@ body{
 
     display:none;
 
+    cursor:pointer;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:15px;
+
+    box-shadow:
+        0 5px 20px #0007,
+        0 0 20px #4aa9ff18;
+
+    transition:.25s;
 }
 
 .music.show{
-
     display:block;
+}
 
+.music:hover{
+    transform:translateY(-2px);
+    border-color:#8dccff;
 }
 
 /* =========================
@@ -1033,14 +834,11 @@ body{
 ========================= */
 
 .shake{
-
     animation:
         shake .45s;
-
 }
 
 @keyframes shake{
-
     25%{
         transform:translateX(-8px);
     }
@@ -1052,27 +850,20 @@ body{
     75%{
         transform:translateX(-5px);
     }
-
 }
 
 .fadeout{
-
     animation:
         fadeout 1.2s forwards;
-
 }
 
 @keyframes fadeout{
-
     to{
-
         opacity:0;
 
         transform:
             scale(1.04);
-
     }
-
 }
 
 /* =========================
@@ -1082,38 +873,30 @@ body{
 @media(max-width:600px){
 
     .calendar{
-
         padding:20px;
-
     }
 
     .grid{
-
         gap:3px;
-
     }
 
     .grid span{
-
         height:34px;
-
         font-size:13px;
-
     }
 
     .letter{
-
         height:86vh;
-
-        padding:
-            25px 22px;
-
+        padding:25px 22px;
     }
 
     .letter p{
-
         font-size:21px;
+    }
 
+    .music{
+        right:12px;
+        bottom:12px;
     }
 
 }
@@ -1667,15 +1450,29 @@ read it again
 </section>
 
 
-<!-- MUSIC -->
+<!-- =================================
+     MUSIC
+================================= -->
 
 <button
     class="music"
     id="musicBtn"
+    type="button"
 >
-♫ music: off
+♫ music: loading...
 </button>
 
+
+<!--
+IMPORTANT:
+The MP3 must be in the SAME folder as index.html.
+
+Actual filename:
+Bruno Major - Nothing (Lyrics)_1790235321724.mp3
+
+The URL encoding below converts spaces and parentheses
+into a safe browser URL.
+-->
 
 <audio
     id="music"
@@ -1684,7 +1481,7 @@ read it again
 >
 
 <source
-    src="Bruno Major - Nothing (Lyrics)_1790235321724.mp3"
+    src="./Bruno%20Major%20-%20Nothing%20%28Lyrics%29_1790235321724.mp3"
     type="audio/mpeg"
 >
 
@@ -1720,7 +1517,6 @@ for(let i=0;i<150;i++){
         2+Math.random()*4+"s";
 
     stars.appendChild(s);
-
 }
 
 
@@ -1749,7 +1545,6 @@ for(let i=0;i<28;i++){
         8+Math.random()*12+"s";
 
     dust.appendChild(d);
-
 }
 
 
@@ -1766,10 +1561,12 @@ function show(id){
         x.classList.remove("active")
     );
 
-    document
-    .getElementById(id)
-    .classList.add("active");
+    const target =
+        document.getElementById(id);
 
+    if(target){
+        target.classList.add("active");
+    }
 }
 
 
@@ -1784,19 +1581,105 @@ const musicBtn =
 document.getElementById("musicBtn");
 
 
+let musicStarted = false;
+
+
+/*
+    This forces the browser to load the MP3.
+*/
+
+music.load();
+
+
+/*
+    Update button if the audio file
+    cannot be found or loaded.
+*/
+
+music.addEventListener(
+    "error",
+    ()=>{
+        musicBtn.classList.add("show");
+
+        musicBtn.textContent =
+            "♫ music: file not found";
+    }
+);
+
+
+/*
+    When audio actually starts playing.
+*/
+
+music.addEventListener(
+    "playing",
+    ()=>{
+
+        musicStarted = true;
+
+        musicBtn.classList.add("show");
+
+        musicBtn.textContent =
+            "♫ music: on";
+
+    }
+);
+
+
+/*
+    When audio is paused.
+*/
+
+music.addEventListener(
+    "pause",
+    ()=>{
+
+        if(
+            !music.ended &&
+            musicStarted
+        ){
+
+            musicBtn.classList.add("show");
+
+            musicBtn.textContent =
+                "♫ music: off";
+
+        }
+
+    }
+);
+
+
+/*
+    Main music starter.
+
+    This function is called immediately after
+    the user presses the password button.
+*/
+
 function startMusic(){
+
+    music.volume = 0.85;
 
     music
     .play()
     .then(()=>{
 
-        musicBtn.textContent =
-            "♫ music: on";
+        musicStarted = true;
 
         musicBtn.classList.add("show");
 
+        musicBtn.textContent =
+            "♫ music: on";
+
     })
     .catch(()=>{
+
+        /*
+            Some mobile browsers may still block
+            playback. In that case, show the button
+            so Rafka can tap it manually.
+        */
 
         musicBtn.classList.add("show");
 
@@ -1808,25 +1691,47 @@ function startMusic(){
 }
 
 
-musicBtn.onclick = ()=>{
+/*
+    Music button.
 
-    if(music.paused){
+    If music is paused, tapping starts it.
+    If music is playing, tapping pauses it.
+*/
 
-        music.play();
+musicBtn.addEventListener(
+    "click",
+    ()=>{
 
-        musicBtn.textContent =
-            "♫ music: on";
+        if(music.paused){
 
-    }else{
+            music
+            .play()
+            .then(()=>{
 
-        music.pause();
+                musicStarted = true;
 
-        musicBtn.textContent =
-            "♫ music: off";
+                musicBtn.textContent =
+                    "♫ music: on";
+
+            })
+            .catch(()=>{
+
+                musicBtn.textContent =
+                    "♫ music: tap to play";
+
+            });
+
+        }else{
+
+            music.pause();
+
+            musicBtn.textContent =
+                "♫ music: off";
+
+        }
 
     }
-
-};
+);
 
 
 /* =================================
@@ -1845,15 +1750,23 @@ document.getElementById("error");
 
 function tryUnlock(){
 
-    if(
+    const entered =
         pass.value
         .trim()
-        .toLowerCase()
-        ===
-        "ralphka"
-    ){
+        .toLowerCase();
 
-        error.textContent="";
+
+    if(entered === "ralphka"){
+
+        error.textContent = "";
+
+        /*
+            IMPORTANT:
+            This happens directly from the
+            password button click, which gives
+            the browser a user interaction and
+            allows audio playback on most phones.
+        */
 
         startMusic();
 
@@ -1875,15 +1788,19 @@ function tryUnlock(){
 }
 
 
-unlock.onclick =
-    tryUnlock;
+unlock.addEventListener(
+    "click",
+    tryUnlock
+);
 
 
 pass.addEventListener(
     "keydown",
     e=>{
 
-        if(e.key==="Enter"){
+        if(e.key === "Enter"){
+
+            e.preventDefault();
 
             tryUnlock();
 
@@ -1919,7 +1836,7 @@ weekdays.forEach(day=>{
     const el =
     document.createElement("span");
 
-    el.textContent=day;
+    el.textContent = day;
 
     grid.appendChild(el);
 
@@ -1956,53 +1873,52 @@ for(
     const el =
     document.createElement("span");
 
-    el.className="day";
+    el.className = "day";
 
-    el.textContent=d;
+    el.textContent = d;
 
 
-    if(d===26){
+    if(d === 26){
 
-        el.classList.add(
-            "special"
+        el.classList.add("special");
+
+
+        el.addEventListener(
+            "click",
+            ()=>{
+
+                document
+                .getElementById(
+                    "dateReveal"
+                )
+                .classList.add("show");
+
+
+                document
+                .getElementById(
+                    "calendarNote"
+                )
+                .innerHTML =
+                    "the day our first chapter is celebrated ♡";
+
+
+                document
+                .getElementById(
+                    "calendar"
+                )
+                .style.transform =
+                    "rotateX(0) rotateY(0) scale(1.02)";
+
+
+                setTimeout(
+                    ()=>{
+                        show("envelopeScreen");
+                    },
+                    2200
+                );
+
+            }
         );
-
-
-        el.onclick=()=>{
-
-            document
-            .getElementById(
-                "dateReveal"
-            )
-            .classList.add(
-                "show"
-            );
-
-
-            document
-            .getElementById(
-                "calendarNote"
-            )
-            .innerHTML =
-                "the day our first chapter is celebrated ♡";
-
-
-            document
-            .getElementById(
-                "calendar"
-            )
-            .style.transform =
-                "rotateX(0) rotateY(0) scale(1.02)";
-
-
-            setTimeout(
-                ()=>{
-                    show("envelopeScreen");
-                },
-                2200
-            );
-
-        };
 
     }
 
@@ -2027,9 +1943,7 @@ env.addEventListener(
     ()=>{
 
         if(
-            env.classList.contains(
-                "open"
-            )
+            env.classList.contains("open")
         ){
 
             return;
@@ -2037,9 +1951,7 @@ env.addEventListener(
         }
 
 
-        env.classList.add(
-            "open"
-        );
+        env.classList.add("open");
 
 
         document
@@ -2072,7 +1984,7 @@ const pages =
 ];
 
 
-let page=0;
+let page = 0;
 
 
 const counter =
@@ -2098,7 +2010,7 @@ function renderPage(){
 
             p.classList.toggle(
                 "active",
-                i===page
+                i === page
             );
 
         }
@@ -2106,7 +2018,7 @@ function renderPage(){
 
 
     counter.textContent =
-        String(page+1)
+        String(page + 1)
         .padStart(2,"0")
         +
         " / "
@@ -2116,7 +2028,7 @@ function renderPage(){
 
 
     prev.style.visibility =
-        page===0
+        page === 0
         ?
         "hidden"
         :
@@ -2124,7 +2036,7 @@ function renderPage(){
 
 
     next.textContent =
-        page===pages.length-1
+        page === pages.length - 1
         ?
         "finish the letter ♡"
         :
@@ -2133,51 +2045,54 @@ function renderPage(){
 }
 
 
-prev.onclick=()=>{
+prev.addEventListener(
+    "click",
+    ()=>{
 
-    if(page>0){
+        if(page > 0){
 
-        page--;
+            page--;
 
-        renderPage();
+            renderPage();
 
-    }
-
-};
-
-
-next.onclick=()=>{
-
-    if(
-        page <
-        pages.length-1
-    ){
-
-        page++;
-
-        renderPage();
-
-    }else{
-
-        document
-        .getElementById(
-            "letter"
-        )
-        .classList.add(
-            "fadeout"
-        );
-
-
-        setTimeout(
-            ()=>{
-                show("finalScreen");
-            },
-            1200
-        );
+        }
 
     }
+);
 
-};
+
+next.addEventListener(
+    "click",
+    ()=>{
+
+        if(
+            page < pages.length - 1
+        ){
+
+            page++;
+
+            renderPage();
+
+        }else{
+
+            document
+            .getElementById("letter")
+            .classList.add("fadeout");
+
+
+            setTimeout(
+                ()=>{
+
+                    show("finalScreen");
+
+                },
+                1200
+            );
+
+        }
+
+    }
+);
 
 
 renderPage();
@@ -2193,12 +2108,8 @@ document.addEventListener(
 
         if(
             !document
-            .getElementById(
-                "letterScreen"
-            )
-            .classList.contains(
-                "active"
-            )
+            .getElementById("letterScreen")
+            .classList.contains("active")
         ){
 
             return;
@@ -2207,8 +2118,8 @@ document.addEventListener(
 
 
         if(
-            e.key==="ArrowRight" ||
-            e.key===" "
+            e.key === "ArrowRight" ||
+            e.key === " "
         ){
 
             e.preventDefault();
@@ -2219,7 +2130,7 @@ document.addEventListener(
 
 
         if(
-            e.key==="ArrowLeft"
+            e.key === "ArrowLeft"
         ){
 
             prev.click();
@@ -2230,6 +2141,8 @@ document.addEventListener(
 );
 
 </script>
+
+</div>
 
 </body>
 </html>
